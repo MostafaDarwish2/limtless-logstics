@@ -73,12 +73,12 @@ export default function Landingpage() {
           {/* Section Two (Three images) */}
           <div className="flex items-center my-28">
             <div className="flex-1 w-1/3 relative group overflow-hidden">
-              <img src={one} alt="" className="w-full h-full object-cover" />
+              <img src={one} alt="" className="w-full h-[350px] object-cover" />
               <div className="absolute bottom-0 w-full bg-black opacity-20 h-full" />
               <h3 className="absolute z-10 bottom-0 text-white text-3xl m-5 group-hover:-translate-y-20 duration-500">
                 شبكة عالمية
               </h3>
-              <div className="bg-yellow-400 absolute bottom-0 w-full h-full translate-y-80 transform group-hover:-translate-y-0 duration-500 flex items-end pb-12">
+              <div className="bg-yellow-400 absolute bottom-0 w-full h-full translate-y-96 transform group-hover:-translate-y-0 duration-500 flex items-end pb-12">
                 <p className="text-black mx-5 max-w-96">
                   تنتشر مكاتب و مراكز التوزيع التابعة للميتليس لوجيستكس في معظم
                   الوجهات الاقتصادية الرئيسية حول العالم
@@ -86,12 +86,12 @@ export default function Landingpage() {
               </div>
             </div>
             <div className="flex-1 w-1/3 relative group overflow-hidden">
-              <img src={two} alt="" className="w-full h-full object-cover" />
+              <img src={two} alt="" className="w-full h-[350px] object-cover" />
               <div className="absolute bottom-0 w-full bg-black opacity-20 h-full" />
               <h3 className="absolute z-10 bottom-0 text-white text-3xl m-5 group-hover:-translate-y-32 duration-500">
                 حلول مرنة
               </h3>
-              <div className="bg-yellow-400 absolute bottom-0 w-full h-full translate-y-80 transform group-hover:-translate-y-0 duration-500 flex items-end pb-12">
+              <div className="bg-yellow-400 absolute bottom-0 w-full h-full translate-y-96 transform group-hover:-translate-y-0 duration-500 flex items-end pb-12">
                 <p className="text-black mx-5 max-w-96">
                   تحرص زاجل على توفير مجموعة متنوعة من حلول الشحن لتلبية
                   الاحتياجات المختلفة للعملاء، بدايةً من حلول التخزين وحتى خدمات
@@ -101,12 +101,12 @@ export default function Landingpage() {
               </div>
             </div>
             <div className="flex-1 w-1/3 relative group overflow-hidden">
-              <img src={three} alt="" className="w-full h-full object-cover" />
+              <img src={three} alt="" className="w-full h-[350px] object-cover" />
               <div className="absolute bottom-0 w-full bg-black opacity-20 h-full" />
               <h3 className="absolute z-10 bottom-0 text-white text-3xl m-5 group-hover:-translate-y-28 duration-500">
                 سهولة فائقة
               </h3>
-              <div className="bg-yellow-400 absolute bottom-0 w-full h-full translate-y-80 transform group-hover:-translate-y-0 duration-500 flex items-end pb-12">
+              <div className="bg-yellow-400 absolute bottom-0 w-full h-full translate-y-96 transform group-hover:-translate-y-0 duration-500 flex items-end pb-12">
                 <p className="text-black mx-5 max-w-96">
                   تلتزم زاجل بتقديم عملية شحن سهلة وبسيطة وخالية من التعقيدات،
                   بدايةً من إمكانية تنفيذ عملية الشحن دون الحاجة لإنشاء حساب
