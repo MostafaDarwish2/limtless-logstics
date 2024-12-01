@@ -6,3 +6,8 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.header {
+  background-image: url(./assets/main.jpeg);
+  height: 100vh;
+}

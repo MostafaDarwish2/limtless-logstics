@@ -1,121 +1,95 @@
-import { ChevronDown, Menu } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+import headimage from "../../assets/image.png";
+
 export default function Header() {
   return (
-    <nav className=" border-gray-200 bg-black  dark:border-gray-700">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <span className="self-center text-3xl whitespace-nowrap text-white font-bold">
-          Limtless Logistics
-        </span>
-        <button
-          data-collapse-toggle="navbar-dropdown"
-          type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-          aria-controls="navbar-dropdown"
-          aria-expanded="false"
-        >
-          <span className="sr-only">Open main menu</span>
-          <Menu />
-        </button>
-        <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-white"
-                aria-current="page"
-              >
+    <div className="relative">
+      <img
+        src={headimage}
+        alt="img"
+        className="absolute top-0 right-0"
+        width={200}
+      />
+      <div className="p-5 mx-auto">
+        <div className="flex justify-between items-center flex-1">
+          <div className="flex gap-8">
+            <h1 className="text-3xl font-bold text-white">
+              Limitless Logestics
+            </h1>
+            <div className="flex items-center gap-10 text-white font-medium">
+              <a className="hover:text-yellow-400 hover:cursor-pointer">
                 تتبع شحنتك
               </a>
-            </li>
-            <li>
               <a
                 href="#"
-                className="block py-2 px-3 text-white"
-                aria-current="page"
+                className="hover:text-yellow-400 hover:cursor-pointer"
               >
                 تعرف علي اقرب فرع
               </a>
-            </li>
-            <li>
-              <button
-                id="dropdownNavbarLink"
-                data-dropdown-toggle="dropdownNavbar"
-                className="flex items-center justify-between w-full py-2 px-3 text-white"
-              >
-                الخدمات <ChevronDown />
-              </button>
-              {/* <!-- Dropdown menu --> */}
-              <div
-                id="dropdownNavbar"
-                className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-              >
-                <ul
-                  className="py-2 text-white"
-                  aria-labelledby="dropdownLargeButton"
+              <div className="dropdown dropdown-hover group">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="hover:text-yellow-400 hover:cursor-pointer flex items-center"
                 >
-                  <li>
-                    <a href="#" className="block px-4 py-2 text-sm text-white">
-                      التجاره الالكترونيه
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="block px-4 py-2 text-sm text-white">
-                      شحن البضائع
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="block px-4 py-2 text-sm text-white">
-                      الشحن والتوزيع
-                    </a>
-                  </li>
-                </ul>
-                <div className="py-1">
-                  <a href="#" className="block px-4 py-2 text-sm text-white">
-                    التوزيع الداخلي
-                  </a>
+                  الخدمات
+                  <ChevronDown className="text-xs size-4 group-hover:rotate-180 transition-transform duration-300" />
                 </div>
-              </div>
-            </li>
-
-            <li>
-              <button
-                id="dropdownNavbarLink"
-                data-dropdown-toggle="dropdownNavbar"
-                className="flex items-center justify-between w-full py-2 px-3 text-white"
-              >
-                الدعم و المساعده <ChevronDown />
-              </button>
-              {/* <!-- Dropdown menu --> */}
-              <div
-                id="dropdownNavbar"
-                className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-              >
                 <ul
-                  className="py-2 text-white"
-                  aria-labelledby="dropdownLargeButton"
+                  tabIndex={0}
+                  className="dropdown-content menu bg-transparent z-[1] w-52 p-2 bg-white text-black"
                 >
                   <li>
-                    <a href="#" className="block px-4 py-2 text-sm text-white">
-                      الدعم و المساعده
-                    </a>
+                    <a>الخدمات</a>
                   </li>
                   <li>
-                    <a href="#" className="block px-4 py-2 text-sm text-white">
-                      الاسئله الشاثعه
-                    </a>
+                    <a>التجاره الالكترونيه</a>
                   </li>
                   <li>
-                    <a href="#" className="block px-4 py-2 text-sm text-white">
-                      اتصل بنا
-                    </a>
+                    <a>شحن البضائع</a>
+                  </li>
+                  <li>
+                    <a>الشحن والتوزيع</a>
+                  </li>
+                  <li>
+                    <a>التوزيع الداخلي</a>
                   </li>
                 </ul>
               </div>
-            </li>
-          </ul>
+              <div className="dropdown dropdown-hover group">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="hover:text-yellow-400 hover:cursor-pointer flex gap-1 items-center"
+                >
+                  الدعم و المساعده
+                  <ChevronDown className="text-xs size-4 group-hover:rotate-180 transition-transform duration-300" />
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu bg-transparent z-[1] w-52 p-2 bg-white text-black"
+                >
+                  <li>
+                    <a>الدعم و المساعده</a>
+                  </li>
+                  <li>
+                    <a>الاسئله الشاثعه</a>
+                  </li>
+                  <li>
+                    <a>اتصل بنا</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <button className="px-10 py-2 rounded-md bg-white text-blue-800 hover:text-gray-950">
+              إداره الشحنات
+            </button>
+          </div>
         </div>
       </div>
-    </nav>
+    </div>
   );
 }
 
