@@ -8,6 +8,7 @@
 }
 
 .header {
-  background-image: url(./assets/main.jpeg);
+  background-image: url(./assets/main.jpg);
   height: 100vh;
+  object-fit: cover;
 }

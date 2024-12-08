@@ -4,6 +4,7 @@ import headimage from "../../assets/image.png";
 export default function Header() {
   return (
     <div className="relative">
+      {/* corner image */}
       <img
         src={headimage}
         alt="img"
@@ -26,6 +27,9 @@ export default function Header() {
               >
                 تعرف علي اقرب فرع
               </a>
+
+              {/* drop down #1 */}
+
               <div className="dropdown dropdown-hover group">
                 <div
                   tabIndex={0}
@@ -56,6 +60,9 @@ export default function Header() {
                   </li>
                 </ul>
               </div>
+
+              {/* drop downs #2 */}
+
               <div className="dropdown dropdown-hover group">
                 <div
                   tabIndex={0}
@@ -82,6 +89,7 @@ export default function Header() {
               </div>
             </div>
           </div>
+          {/* button */}
           <div className="flex items-center gap-4">
             <button className="px-10 py-2 rounded-md bg-white text-blue-800 hover:text-gray-950">
               إداره الشحنات

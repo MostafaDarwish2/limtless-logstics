@@ -8,6 +8,7 @@ import three from "../../assets/landingPage/3.jpg";
 export default function Landingpage() {
   return (
     <>
+      {/* Hero Section titles */}
       <div className="container mx-auto py-40">
         <h1 className="text-4xl text-white max-w-[480px] font-medium leading-normal">
           حلول لوجستية سهلة، وموثوقة، وبأسعار تنافسية
@@ -17,9 +18,13 @@ export default function Landingpage() {
           الاحترافية وشبكتنا اللوجستية العالمية
         </p>
       </div>
-      <div className="h-40 w-full bg-gradient-to-b from-transparent to-[#0054A6]" />
+
+      {/* color gradient div */}
+      <div className="h-36 w-full bg-gradient-to-b from-transparent to-[#0054A6]" />
+
       <div className="bg-[#0054A6]">
         <div className="mx-8 py-20 bg-white rounded-xl relative">
+          {/* Input dev  */}
           <div className="bg-[#FFC22E] flex items-center p-5 rounded-lg w-[75%] mx-40 gap-6 absolute -top-12">
             <div className="relative z-0 w-full">
               <input
@@ -60,12 +65,12 @@ export default function Landingpage() {
                   </span>
                 </h2>
                 <p className="text-base text-gray-600 py-4">
-                  تُعد &quot;زاجل&quot; أول شركة خاصة لخدمات البريد في المملكة
-                  العربية السعودية. وخلال وقت قصير، نجحت الشركة في تحقيق الريادة
-                  في مجال الشحن والخدمات اللوجستية إذ تقدم خدماتها لمئات العملاء
-                  حول العالم. واليوم، تحظى الشركة بثقة أكثر من 500 عميل يعتمدون
-                  على خدمات &quot;زاجل&quot; الاحترافية لنقل بضائعهم بسهولة
-                  وسرعة وأمان، مما يتيح لهم تنمية شركاتهم وتوسيع نطاق أعمالهم
+                  تُعد &quot;LimitLess&quot;. وخلال وقت قصير، نجحت الشركة في
+                  تحقيق الريادة في مجال الشحن والخدمات اللوجستية إذ تقدم خدماتها
+                  لمئات العملاء حول العالم. واليوم، تحظى الشركة بثقة أكثر من 500
+                  عميل يعتمدون على خدمات &quot;LimitLess&quot; الاحترافية لنقل
+                  بضائعهم بسهولة وسرعة وأمان، مما يتيح لهم تنمية شركاتهم وتوسيع
+                  نطاق أعمالهم
                 </p>
               </div>
             </div>
@@ -93,7 +98,7 @@ export default function Landingpage() {
               </h3>
               <div className="bg-yellow-400 absolute bottom-0 w-full h-full translate-y-96 transform group-hover:-translate-y-0 duration-500 flex items-end pb-12">
                 <p className="text-black mx-5 max-w-96">
-                  تحرص زاجل على توفير مجموعة متنوعة من حلول الشحن لتلبية
+                  تحرص LimitLess على توفير مجموعة متنوعة من حلول الشحن لتلبية
                   الاحتياجات المختلفة للعملاء، بدايةً من حلول التخزين وحتى خدمات
                   التوصيل من الباب للباب، أيًا كان نوع الشحنة أو الطرد المراد
                   توصيله
@@ -101,19 +106,27 @@ export default function Landingpage() {
               </div>
             </div>
             <div className="flex-1 w-1/3 relative group overflow-hidden">
-              <img src={three} alt="" className="w-full h-[350px] object-cover" />
-              <div className="absolute bottom-0 w-full bg-black opacity-20 h-full" />
+              <img
+                src={three}
+                alt=""
+                className="w-full h-[350px] object-cover"
+              />
+              <div className="absolute bottom-0 w-full bg-black h-full opacity-20" />
               <h3 className="absolute z-10 bottom-0 text-white text-3xl m-5 group-hover:-translate-y-28 duration-500">
                 سهولة فائقة
               </h3>
               <div className="bg-yellow-400 absolute bottom-0 w-full h-full translate-y-96 transform group-hover:-translate-y-0 duration-500 flex items-end pb-12">
                 <p className="text-black mx-5 max-w-96">
-                  تلتزم زاجل بتقديم عملية شحن سهلة وبسيطة وخالية من التعقيدات،
-                  بدايةً من إمكانية تنفيذ عملية الشحن دون الحاجة لإنشاء حساب
-                  وحتى خيارات الدفع عند الاستلام
+                  تلتزم LimitLess بتقديم عملية شحن سهلة وبسيطة وخالية من
+                  التعقيدات، بدايةً من إمكانية تنفيذ عملية الشحن دون الحاجة
+                  لإنشاء حساب وحتى خيارات الدفع عند الاستلام
                 </p>
               </div>
             </div>
+          </div>
+          {/* Section three video */}
+          <div className="my-28">
+            <div className="before:content-[''] before:bg-yellow-400 before:p-4 before:w-64" />
           </div>
         </div>
       </div>

@@ -6,7 +6,9 @@ function App() {
   return (
     <>
       <div className="header relative">
+        {/* navbar */}
         <Header />
+        {/* landing page */}
         <Landingpage />
       </div>
     </>
