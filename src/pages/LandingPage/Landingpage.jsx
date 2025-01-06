@@ -1,11 +1,22 @@
-import React from "react";
+import CountUp from "react-countup";
 import yellowBox from "../../assets/box-yellow.svg";
 import image1 from "../../assets/image1.png";
 import one from "../../assets/landingPage/1.jpeg";
 import two from "../../assets/landingPage/2.jpeg";
 import three from "../../assets/landingPage/3.jpg";
+import video from "../../assets/landingPage/main.mp4";
+import whiteBox from "../../assets/landingPage/box-white.svg";
+import { useInView } from "react-intersection-observer";
+import logistics from "../../assets/landingPage/logistics.webp";
+import brandIcon from "../../assets/landingPage/brandIcon.svg";
+import brandIcon2 from "../../assets/landingPage/brandIcon2.svg";
+import Accordion from "../../components/accordion";
 
 export default function Landingpage() {
+  const { ref: statsRef, inView: statsInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
   return (
     <>
       {/* Hero Section titles */}
@@ -125,8 +136,149 @@ export default function Landingpage() {
             </div>
           </div>
           {/* Section three video */}
+          <div className="my-28 ">
+            {/* yellow line above */}
+            <div className="h-2 overflow-hidden">
+              <span className="before:content-[''] before:bg-yellow-400 before:px-40 float-left" />
+            </div>
+            {/* video section */}
+            <div className="relative">
+              <video
+                loop
+                autoPlay
+                muted
+                className="object-cover w-full h-[500px]"
+              >
+                <source src={video} type="video/mp4" />
+              </video>
+              <div className="absolute bg-black w-full h-full top-0 opacity-50" />
+              <div className="absolute bottom-0 h-44 w-full bg-gradient-to-b from-transparent to-[#0054A6]" />
+              <div className="absolute top-0 pt-20 text-center w-full flex flex-col justify-center items-center">
+                <img src={whiteBox} alt="whitebox" />
+                <h2 className="text-yellow-500 text-3xl font-bold">
+                  خدمات شحن آمنة وموثوقة
+                </h2>
+              </div>
+              {/* number counter */}
+              <div
+                ref={statsRef}
+                className="absolute w-full text-white text-center font-bold pb-16 bottom-0 grid grid-cols-5 justify-center px-20"
+              >
+                <div>
+                  <p className="text-5xl">
+                    {statsInView && <CountUp end={7} duration={2} />}
+                    <span>M</span>+
+                  </p>
+                  <p>عميل نشط</p>
+                </div>
+                <div>
+                  <p className="text-5xl">
+                    {statsInView && <CountUp end={396} duration={2}></CountUp>}
+                  </p>
+                  <p>شاحنة</p>
+                </div>
+                <div>
+                  <p className="text-5xl">
+                    <span>+</span>
+                    {statsInView && <CountUp end={500} duration={2} />}
+                  </p>
+                  <p>شركة متعاقدة</p>
+                </div>
+                <div>
+                  <p className="text-5xl">
+                    {statsInView && <CountUp end={1055} duration={2} />}
+                  </p>
+                  <p>موظفا</p>
+                </div>
+                <div>
+                  <p className="text-5xl">
+                    {statsInView && <CountUp end={117} duration={2} />}
+                  </p>
+                  <p>فرعا</p>
+                </div>
+              </div>
+            </div>
+
+            {/* yellow line under */}
+            <div className="h-2 overflow-hidden">
+              <span className="before:content-[''] before:bg-yellow-400 before:px-40 float-right" />
+            </div>
+          </div>
+          {/*  */}
           <div className="my-28">
-            <div className="before:content-[''] before:bg-yellow-400 before:p-4 before:w-64" />
+            <div
+              className="relative bg-cover bg-center h-[800px] w-full"
+              style={{ backgroundImage: `url(${logistics})` }}
+            >
+              <div className="bg-yellow-500 w-full top-0 h-full opacity-95" />
+              <div className="absolute top-0 w-full flex flex-col pt-16 justify-center items-center">
+                <img src={whiteBox} alt="whitebox" />
+                <h2 className="text-gray-800 text-3xl font-bold">
+                  احصل على كافة احتياجاتك اللوجستية في مكانٍ واحد
+                </h2>
+              </div>
+              <img
+                src={brandIcon}
+                alt=""
+                className="absolute top-36 right-10"
+                width={277}
+                height={192}
+              />
+              <img
+                src={brandIcon2}
+                alt=""
+                className="absolute -bottom-20 right-10"
+                width={503}
+                height={200}
+              />
+              <div className="w-full absolute top-0">
+                <Accordion />
+                {/* <div className="max-w-[1100px] relative mx-auto flex mt-44 overflow-hidden rounded-xl h-[500px]">
+                  <div className="flex-1 px-8 z-20 pt-20 max-w-[40%] bg-[#02232A] text-white space-y-8">
+                    <div>
+                      <div className="flex items-center gap-4">
+                        <p className="text-2xl">+</p>
+                        <h1 className="font-bold text-2xl">
+                          التجارة الإلكترونية
+                        </h1>
+                      </div>
+                      <h6 className="mt-4 w-[80%] text-sm">
+                        باعتبارها أول شركة خاصة لتقديم خدمات البريد بالمملكة،
+                        تسخر &apos;زاجل&apos; كافة خبراتها وإمكاناتها وشبكتها
+                        العالمية الهائلة لتقديم مجموعة متكاملة من الحلول الل...
+                      </h6>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-4">
+                        <p className="text-2xl">+</p>
+                        <h1 className="font-bold text-2xl">شحن البضائع </h1>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-4">
+                        <p className="text-2xl">+</p>
+                        <h1 className="font-bold text-2xl">
+                          التخزين و التوزيع
+                        </h1>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-4">
+                        <p className="text-2xl">+</p>
+                        <h1 className="font-bold text-2xl">التوزيع الداخلي </h1>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="max-w-full h-[500px]">
+                    <img
+                      src={image}
+                      alt=""
+                      className="absolute right-0 h-full"
+                    />
+                  </div>
+                </div> */}
+              </div>
+            </div>
           </div>
         </div>
       </div>
