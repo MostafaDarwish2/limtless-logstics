@@ -34,7 +34,7 @@ export default function Landingpage() {
       <div className="h-36 w-full bg-gradient-to-b from-transparent to-[#0054A6]" />
 
       <div className="bg-[#0054A6]">
-        <div className="mx-8 py-20 bg-white rounded-xl relative">
+        <div className="mx-8 pt-20 pb-1 bg-white rounded-xl relative">
           {/* Input dev  */}
           <div className="bg-[#FFC22E] flex items-center p-5 rounded-lg w-[75%] mx-40 gap-6 absolute -top-12">
             <div className="relative z-0 w-full">

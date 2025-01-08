@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import headimage from "../../assets/image.png";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -14,13 +15,16 @@ export default function Header() {
       <div className="p-5 mx-auto">
         <div className="flex justify-between items-center flex-1">
           <div className="flex gap-8">
-            <h1 className="text-3xl font-bold text-white">
+            <NavLink to="/" className="text-3xl font-bold text-white">
               Limitless Logestics
-            </h1>
+            </NavLink>
             <div className="flex items-center gap-10 text-white font-medium">
-              <a className="hover:text-yellow-400 hover:cursor-pointer">
+              <NavLink
+                to="/track"
+                className="hover:text-yellow-400 hover:cursor-pointer"
+              >
                 تتبع شحنتك
-              </a>
+              </NavLink>
               <a
                 href="#"
                 className="hover:text-yellow-400 hover:cursor-pointer"
@@ -41,7 +45,7 @@ export default function Header() {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content menu bg-transparent z-[1] w-52 p-2 bg-white text-black"
+                  className="dropdown-content menu bg-transparent z-[5] w-52 p-2 bg-white text-black"
                 >
                   <li>
                     <a>الخدمات</a>
@@ -74,7 +78,7 @@ export default function Header() {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content menu bg-transparent z-[1] w-52 p-2 bg-white text-black"
+                  className="dropdown-content menu bg-transparent z-[5] w-52 p-2 bg-white text-black"
                 >
                   <li>
                     <a>الدعم و المساعده</a>
