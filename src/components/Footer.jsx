@@ -1,12 +1,15 @@
+import { NavLink } from "react-router-dom";
+import logo from "../assets/logo.png";
+
 export default function Footer() {
   return (
     <>
       <div className="bg-[#0054A6] w-full text-sm">
         <div className="grid grid-cols-12 p-12 w-full">
           <div className="col-span-2">
-            <h1 className="text-white font-bold text-2xl">
-              Limitless Logistics
-            </h1>
+            <NavLink to="/" className="text-3xl font-bold text-white ">
+              <img src={logo} alt="" width={120} />
+            </NavLink>
           </div>
           <div className="col-span-2 text-white mr-10">
             <ul className="space-y-2">
