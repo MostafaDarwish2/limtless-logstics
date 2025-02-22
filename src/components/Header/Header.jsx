@@ -54,15 +54,12 @@ export default function Header() {
                       <a>شحن البضائع</a>
                     </li>
                   </NavLink>
-                  <li>
-                    <a>الشحن الداخلي</a>
-                  </li>
                 </ul>
               </div>
 
               {/* drop downs #2 */}
 
-              <div className="dropdown dropdown-hover group">
+              {/* <div className="dropdown dropdown-hover group">
                 <div
                   tabIndex={0}
                   role="button"
@@ -85,16 +82,18 @@ export default function Header() {
                     <a>اتصل بنا</a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
           {/* button */}
           <div className="flex items-center gap-4">
             {user ? (
               <>
-                <button className="px-10 py-2 rounded-md bg-white text-blue-800 hover:text-gray-950">
-                  إداره الشحنات
-                </button>
+                <NavLink to="management">
+                  <button className="px-10 py-2 rounded-md bg-white text-blue-800 hover:text-gray-950">
+                    إداره الشحنات
+                  </button>
+                </NavLink>
                 <button
                   onClick={() => {
                     handleLogout();

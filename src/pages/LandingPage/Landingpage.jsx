@@ -13,13 +13,52 @@ import brandIcon2 from "../../assets/landingPage/brandIcon2.svg";
 import Accordion from "../../components/accordion";
 import { useAuth } from "../../context/AuthContext.jsx";
 import bgimg from "../../assets/main.jpg";
+import { useState } from "react";
+import {
+  Description,
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+} from "@headlessui/react";
+import axios from "axios";
 
 export default function Landingpage() {
+  const [trackingNumber, setTrackingNumber] = useState("");
+  const [shippingDetails, setShippingDetails] = useState(null);
+  const [error, setError] = useState(null);
+  let [isOpen, setIsOpen] = useState(false);
   const { isAuthenticated } = useAuth();
   const { ref: statsRef, inView: statsInView } = useInView({
     triggerOnce: true,
     threshold: 0.5,
   });
+
+  async function getShippingDetails() {
+    setError(null);
+    setShippingDetails(null);
+    console.log(trackingNumber);
+
+    try {
+      let { data } = await axios.get(
+        `http://127.0.0.1:3000/api/v1/shipping/t/${trackingNumber}`
+      );
+      if (data.status === "success") {
+        setShippingDetails(data.data);
+        setIsOpen(true);
+      } else {
+        setError("حدث خطأ غير متوقع");
+      }
+    } catch (e) {
+      console.log(e.response?.data?.message || "Unknown error");
+      setError(
+        e.response?.data?.message === "Shipment not found"
+          ? "لا توجد شحنة بهذا الرقم"
+          : "حدث خطأ أثناء استرجاع البيانات"
+      );
+      setIsOpen(true);
+    }
+  }
+
   return (
     <>
       <img
@@ -53,6 +92,10 @@ export default function Landingpage() {
                   id="floating_standard"
                   className="block flex-1 py-2.5 px-0 w-full text-sm  bg-transparent border-0 border-b-2 border-gray-700 appearance-none text-black  focus:outline-none focus:ring-0 peer"
                   placeholder=" "
+                  onChange={(e) => {
+                    setTrackingNumber(e.target.value);
+                    console.log(e.target.value);
+                  }}
                 />
                 <label
                   htmlFor="floating_standard"
@@ -61,7 +104,12 @@ export default function Landingpage() {
                   رقم الشحنة
                 </label>
               </div>
-              <button className="bg-white font-semibold rounded-md w-40 p-3 text-blue-800 hover:text-gray-950">
+              <button
+                className="bg-white font-semibold rounded-md w-40 p-3 text-blue-800 hover:text-gray-950"
+                onClick={() => {
+                  getShippingDetails();
+                }}
+              >
                 تابع شحنتك
               </button>
             </div>
@@ -246,6 +294,64 @@ export default function Landingpage() {
               />
               <div className="w-full absolute top-0">
                 <Accordion />
+                <Dialog
+                  open={isOpen}
+                  onClose={() => setIsOpen(false)}
+                  className="relative z-50"
+                >
+                  <div className="fixed inset-0 bg-black bg-opacity-50" />
+                  <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
+                    <DialogPanel className="max-w-3xl w-[460px] space-y-6 border bg-white py-8 px-6 rounded-lg">
+                      {!error ? (
+                        <>
+                          <DialogTitle className="font-bold">
+                            <div className="flex gap-4 items-center">
+                              <b className="text-lg">حالة الشحنة</b>
+                              <div className="text-[11px] px-2 py-[2px] bg-slate-200 text-center rounded-md text-gray-400">
+                                {shippingDetails?.status}
+                              </div>
+                            </div>
+                          </DialogTitle>
+                          <Description>
+                            <p className="text-xl font-bold">معلومات الشحنة:</p>
+                          </Description>
+                          <div className="px-3 flex flex-col gap-2 rounded-md">
+                            <p>
+                              <b>الطريقة :</b>{" "}
+                              {shippingDetails?.shippingType.toUpperCase()}
+                            </p>
+                            <p>
+                              <b>التكلفة :</b>{" "}
+                              {shippingDetails?.totalPrice.toFixed(2)}
+                            </p>
+                            <p>
+                              <b>اسم المستلم :</b>{" "}
+                              {shippingDetails?.receiverName}
+                            </p>
+                            <p>
+                              <b>عنوان المستلم :</b>{" "}
+                              {shippingDetails?.receiverAddress}
+                            </p>
+                          </div>
+                        </>
+                      ) : (
+                        <p className="text-red-500 text-center font-bold text-lg">
+                          {error}
+                        </p>
+                      )}
+
+                      <div className="flex gap-4">
+                        <button
+                          onClick={() => setIsOpen(false)}
+                          className="bg-red-600 text-white font-bold py-2 px-6 rounded-md"
+                        >
+                          اغلاق
+                        </button>
+                      </div>
+                    </DialogPanel>
+                  </div>
+                </Dialog>
+
                 {/* <div className="max-w-[1100px] relative mx-auto flex mt-44 overflow-hidden rounded-xl h-[500px]">
                   <div className="flex-1 px-8 z-20 pt-20 max-w-[40%] bg-[#02232A] text-white space-y-8">
                     <div>

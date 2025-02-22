@@ -9,6 +9,7 @@ import Signup from "./pages/signup/Signup";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import ProtectedRoute from "./pages/ProtectedRoute/ProtectedRoute.jsx";
 import GlobalShipping from "./pages/globalShipping/GlobalShipping.jsx";
+import Management from "./pages/managment/Management.jsx";
 
 function App() {
   return (
@@ -40,6 +41,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <GlobalShipping />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/management"
+              element={
+                <ProtectedRoute>
+                  <Management />
                 </ProtectedRoute>
               }
             />

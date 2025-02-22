@@ -1,5 +1,11 @@
 import axios from "axios";
-import { createContext, useState, useContext, useReducer } from "react";
+import {
+  createContext,
+  useState,
+  useContext,
+  useReducer,
+  useEffect,
+} from "react";
 import { useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
@@ -33,6 +39,19 @@ function AuthProvider({ children }) {
     reducer,
     initialState
   );
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      try {
+        const decodedUser = jwtDecode(token);
+        dispatch({ type: "LOGIN", payload: decodedUser });
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  }, []);
+
   async function login(email, password) {
     try {
       setLoading(true);
