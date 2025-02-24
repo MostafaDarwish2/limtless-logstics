@@ -6,7 +6,8 @@ import bgimg from "../../assets/main.jpg";
 export default function Signup() {
   let navigate = useNavigate();
   const [user, setUser] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -69,17 +70,34 @@ export default function Signup() {
           )}
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             {/* Name */}
-            {error.name && <p className="text-red-500 text-sm">{error.name}</p>}
-            <label className="text-gray-700 font-medium">الاسم:</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={user.name}
-              onChange={handleInputChange}
-              required
-              className="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+            <div className="flex gap-2">
+              {error.name && (
+                <p className="text-red-500 text-sm">{error.name}</p>
+              )}
+              <label className="text-gray-700 font-medium">الاسم الاول:</label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                value={user.firstName}
+                onChange={handleInputChange}
+                required
+                className="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 flex-1"
+              />
+              {error.name && (
+                <p className="text-red-500 text-sm">{error.name}</p>
+              )}
+              <label className="text-gray-700 font-medium">الاسم الاخير:</label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                value={user.lastName}
+                onChange={handleInputChange}
+                required
+                className="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 flex-1"
+              />
+            </div>
 
             {/* Email */}
             {error.email && (
